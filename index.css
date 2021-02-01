@@ -6,19 +6,26 @@ body {
 }
 
 header {
-    width: 1220px;
+    width: 80%;
+    height: 100px;
     display: flex;
     justify-content: space-around;
+    background-color: rgba(149, 180, 241, 0.5);;
+    margin: 0 auto;
 }
 
 .logo {
     width: 145px;
-    height: 100px;
+    height: 80px;
+    margin-top: 5px;
 }
 
 .add-card-button {
     border-radius: 30px;
-    width: 300px;
-    height: 68px;
-    
+    width: 150px;
+    height: 30px;
+    margin-top:  30px;
+    background-color: #95B4F1;
+    font-size: 15px;
+    font-weight: 400;
 }
