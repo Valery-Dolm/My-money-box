@@ -16,29 +16,47 @@
         
         <main>
             <div class="card">
-                <input type="text" class="card__title">
-                
-                <p class="card__text"></p>
-                <input type="number" class="card__total-amount">
+                <div class="test">
+                        <input type="text" placeholder="НАЗВАНИЕ ЦЕЛИ" class="card__title">
+                        
+                        <p class="card__text">требуемая сумма</p>
+                        <input type="number" placeholder="0 RUB" class="card__total-amount">
 
-                <p class="card__text"></p>
-                <input type="number" class="card__first-payment">
+                        <p class="card__text">стартовая сумма</p>
+                        <input type="number" placeholder="0 RUB" class="card__first-payment">
 
-                <div class="card__date-and-percent">
-                    <p class="card__text"></p>
-                    <input type="date" class="card__date">
-                    <p class="card__text"></p>
-                    <input type="number" class="card__percent">
+                        <div class="card__date-and-percent">
+                            <div class="card__date-width">
+                                <p class="card__text">срок</p>
+                                <input type="date" class="card__date">
+                            </div>
+                            <div class="card__percent-width">
+                                <p class="card__text">% вклада</p>
+                                <input type="number" placeholder="%" class="card__percent">
+                            </div>
+                        </div>
+                    <p class="card__text">ежемесячный платёж</p>
+                    <input type="number" class="card__monthly-payment">
                 </div>
+                <div class="card__buttons">
+                    <img class="card__buttons-delete" src="image/save.png" alt="Удалить карточку">
+                    <img class="card__buttons-save" src="image/delete.png" alt="Сохранить карточку">
+                </div>
+                
+            </div>
 
+            <div class="card__closed">
+
+                <input type="text" placeholder="НАЗВАНИЕ ЦЕЛИ" class="card__title">
+
+                <input type="date" class="card__date">
+
+                <p class="card__text">ежемесячный платёж</p>
                 <input type="number" class="card__monthly-payment">
 
                 <div class="card__buttons">
-                    <button class="card__save-button">Сохранить</button>
-                    <button class="card__edit-button">Редактировать</button>
-                    <button class="card__delete-button">Удалить</button>
+                    <button class="card__edit-button">редактировать</button>
                 </div>
-                
             </div>
         </main>
 
