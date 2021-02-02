@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    width: 80%;
+    width: 100%;
     height: 100px;
     display: flex;
     justify-content: space-around;
@@ -28,49 +28,66 @@ header {
     background-color: #95B4F1;
     font-size: 15px;
     font-weight: 400;
+    border: none;
+}
+
+.add-card-button:hover {
+    cursor: pointer;
+}
+
+.add-card-button:focus {
+    outline: none;
 }
 
 /* Pavel Start*/
 
-main {
+main {   
     display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
 
 .card__text {
     font-family: Roboto;
     font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .card {
-    background: #95B4F1;
+    background: rgba(149, 180, 241, 0.5);
     border-radius: 45px;
-    height: 550px;
-    width: 20%;
-    z-index: 1;
+    height: 440px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    margin-left: 25px;
-    margin-top: 25px;    
+    margin: 50px 100px 45px 25px;
 }
 
+.card:nth-child(3n) {
+    margin-right: 0;
+} 
+
 .test {
-    width: 100%;
+    padding-top: 25px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
-    position: relative;
-    z-index: 1;
-    padding-top: 3%;
-    padding-bottom: 3%;    
 }
 
 input {
     border-radius: 30px;
     width: 80%;
-    height: 55px;
     border: none;
     text-align: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -82,7 +99,28 @@ input:hover {
 }
 
 .card__title {
-    height: 90px;
+    height: 50px;
+}
+
+.card__total-amount {
+    height: 30px;
+}
+
+.card__first-payment {
+    height: 30px;
+}
+
+.card__date {
+    height: 30px;
+}
+
+.card__percent {
+    height: 30px;
+}
+
+.card__monthly-payment {
+    height: 30px;
+    background-color: white;
 }
 
 .card__date-and-percent {
@@ -115,29 +153,26 @@ input:hover {
 }
 
 .card__buttons {
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
     display: flex;
     justify-content: space-evenly;
-    position: relative;
-    z-index: 0;
-    padding-top: 55px;
     width: 100%;
     height: 80px;
-    background: rgba(149, 180, 241, 0.35);
-    border-radius: 0 0 45px 45px;
+    padding-top: 8px;
+    /* border-radius: 0 0 45px 45px; */
 }
 
 .card__buttons-delete {
     width: 42px;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     height: 42px;
 }
 
 .card__buttons-save {
     width: 42px;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     height: 42px;
 }
 
