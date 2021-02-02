@@ -11,7 +11,7 @@ header {
     display: flex;
     justify-content: space-around;
     background-color: rgba(149, 180, 241, 0.5);;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
 }
 
 .logo {
@@ -71,7 +71,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 100px 45px 25px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
 }
 
 .card:nth-child(3n) {
@@ -189,4 +191,28 @@ input:hover {
     z-index: 0;
     padding-top: 3%;
     padding-bottom: 3%;
+}
+
+.card__first-payment::-webkit-outer-spin-button,
+.card__first-payment::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.card__total-amount::-webkit-outer-spin-button,
+.card__total-amount::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.card__percent::-webkit-outer-spin-button,
+.card__percent::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.card__monthly-payment::-webkit-outer-spin-button,
+.card__monthly-payment::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
