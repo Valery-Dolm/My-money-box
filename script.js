@@ -10,6 +10,7 @@ const buttonSave = document.querySelector('.card__buttons-save');
 const buttonDelete = document.querySelector('.card__buttons-delete');
 const toSave = document.querySelectorAll('.to-save');
 const buttonEdit = document.querySelector('.card__edit-button');
+const title = document.querySelector('.card__title');
 let statusTracker = 'buttons';
 
 var today = new Date();
@@ -18,15 +19,54 @@ var mm = String(today.getMonth() + 1).padStart(1, '0');
 var yyyy = today.getFullYear();
 let moneyBoxTerm;
 
+console.log(typeof totAmount.value);
+
 date.addEventListener('change', () => {
     moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 30).toFixed(2);
     if(moneyBoxTerm<1) {
         alert('Минимальный срок - 1 месяц! Укажите , пожалуйста корректный срок.')
     } else {
-    if (isFinite(totAmount.value) && isFinite(firstPayment.value) && isFinite(percent.value)) {
-        monthlyPayment.value = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+    if (totAmount.value != '' && firstPayment.value != '' && percent.value != '') {
+        let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+        monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
     }
 }
+});
+
+totAmount.addEventListener('input', () => {
+    moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 30).toFixed(2);
+    if(moneyBoxTerm<1) {
+        alert('Минимальный срок - 1 месяц! Укажите , пожалуйста корректный срок.')
+    } else {
+        if (date != null && firstPayment.value != '' && percent.value != '') {
+            let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+            monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
+        }
+    }    
+});
+
+firstPayment.addEventListener('input', () => {
+    moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 30).toFixed(2);
+    if(moneyBoxTerm<1) {
+        alert('Минимальный срок - 1 месяц! Укажите , пожалуйста корректный срок.')
+    } else {
+        if (date !=null && totAmount.value != '' && percent.value != '') {
+            let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+            monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
+        }
+    }
+});
+
+percent.addEventListener('input', () => {
+    moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 30).toFixed(2);
+    if(moneyBoxTerm<1) {
+        alert('Минимальный срок - 1 месяц! Укажите , пожалуйста корректный срок.')
+    } else {
+        if (totAmount.value != '' && firstPayment.value != '' && date != null) {
+            let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+            monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
+        }
+    }
 });
 
 addButton.addEventListener('click', () => {
@@ -43,6 +83,7 @@ addButton.addEventListener('click', () => {
     const buttonDelete = newCard.querySelector('.card__buttons-delete');
     const toSave = newCard.querySelectorAll('.to-save');
     const buttonEdit = newCard.querySelector('.card__edit-button');
+    const title = newCard.querySelector('.card__title');
     if(statusTracker == 'reduction') {
         buttonSave.style.display = 'inline-block';
         buttonDelete.style.display = 'inline-block';
@@ -52,8 +93,45 @@ addButton.addEventListener('click', () => {
     date.addEventListener('change', () => {
         moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 31).toFixed(2);
         if (isFinite(totAmount.value) && isFinite(firstPayment.value) && isFinite(percent.value)) {
-            monthlyPayment.value = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+            let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+                monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
         };
+    });
+
+    percent.addEventListener('input', () => {
+        moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 30).toFixed(2);
+        if(moneyBoxTerm<1) {
+            alert('Минимальный срок - 1 месяц! Укажите , пожалуйста корректный срок.')
+        } else {
+            if (totAmount.value != '' && firstPayment.value != '' && date != null) {
+                let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+                monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
+            }
+        }
+    });
+
+    firstPayment.addEventListener('input', () => {
+        moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 30).toFixed(2);
+        if(moneyBoxTerm<1) {
+            alert('Минимальный срок - 1 месяц! Укажите , пожалуйста корректный срок.')
+        } else {
+            if (date !=null && totAmount.value != '' && percent.value != '') {
+                let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+                monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
+            }
+        }
+    });
+
+    totAmount.addEventListener('input', () => {
+        moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 30).toFixed(2);
+        if(moneyBoxTerm<1) {
+            alert('Минимальный срок - 1 месяц! Укажите , пожалуйста корректный срок.')
+        } else {
+            if (date != null && firstPayment.value != '' && percent.value != '') {
+                let result = (totAmount.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1) - firstPayment.value * (percent.value * 0.01 / 12) * 1 / (Math.pow((1 + percent.value * 0.01 / 12), moneyBoxTerm) - 1)).toFixed(2);
+                monthlyPayment.value = result > 0 ? monthlyPayment.value = result : false;
+            }
+        }    
     });
 
     buttonSave.addEventListener('click', () => {
@@ -63,8 +141,9 @@ addButton.addEventListener('click', () => {
         buttonSave.style.display = 'none';
         buttonDelete.style.display = 'none';
         buttonEdit.style.display = 'inline-block';
+        title.style.backgroundColor = '#FDFFAB';
     });
-
+  
     buttonEdit.addEventListener('click', () => {
         toSave.forEach((item) => {
             item.classList.remove('inaccessible');
@@ -73,6 +152,7 @@ addButton.addEventListener('click', () => {
         buttonSave.style.display = 'inline-block';
         buttonDelete.style.display = 'inline-block';
         buttonEdit.style.display = 'none';
+        title.style.backgroundColor = 'white';
     });
 
     buttonDelete.addEventListener('click', () => {
@@ -88,6 +168,7 @@ buttonSave.addEventListener('click', () => {
     buttonDelete.style.display = 'none';
     buttonEdit.style.display = 'inline-block';
     statusTracker = 'reduction';
+    title.style.backgroundColor = '#FDFFAB';
 });
 
 buttonEdit.addEventListener('click', () => {
@@ -99,6 +180,7 @@ buttonEdit.addEventListener('click', () => {
     buttonDelete.style.display = 'inline-block';
     buttonEdit.style.display = 'none';
     statusTracker = 'buttons';
+    title.style.backgroundColor = 'white';
 });
 
 buttonDelete.addEventListener('click', () => {
