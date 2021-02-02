@@ -10,6 +10,7 @@ const buttonSave = document.querySelector('.card__buttons-save');
 const buttonDelete = document.querySelector('.card__buttons-delete');
 const toSave = document.querySelectorAll('.to-save');
 const buttonEdit = document.querySelector('.card__edit-button');
+let statusTracker = 'buttons';
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(1, '0');
@@ -42,6 +43,11 @@ addButton.addEventListener('click', () => {
     const buttonDelete = newCard.querySelector('.card__buttons-delete');
     const toSave = newCard.querySelectorAll('.to-save');
     const buttonEdit = newCard.querySelector('.card__edit-button');
+    if(statusTracker == 'reduction') {
+        buttonSave.style.display = 'inline-block';
+        buttonDelete.style.display = 'inline-block';
+        buttonEdit.style.display = 'none';
+    }
     
     date.addEventListener('change', () => {
         moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 31).toFixed(2);
@@ -81,6 +87,7 @@ buttonSave.addEventListener('click', () => {
     buttonSave.style.display = 'none';
     buttonDelete.style.display = 'none';
     buttonEdit.style.display = 'inline-block';
+    statusTracker = 'reduction';
 });
 
 buttonEdit.addEventListener('click', () => {
@@ -91,6 +98,7 @@ buttonEdit.addEventListener('click', () => {
     buttonSave.style.display = 'inline-block';
     buttonDelete.style.display = 'inline-block';
     buttonEdit.style.display = 'none';
+    statusTracker = 'buttons';
 });
 
 buttonDelete.addEventListener('click', () => {
