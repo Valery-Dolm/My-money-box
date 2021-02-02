@@ -15,6 +15,6 @@ let moneyBoxTerm;
 date.addEventListener('change', () => {
     moneyBoxTerm = ((+date.value.split('-')[0] - yyyy)* 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd)/31).toFixed(2);
     
-    monthlyPayment.value = totAmount.value * (percent.value*0.01/12) * 1/(Math.pow((1+percent.value*0.01/12),moneyBoxTerm) - 1) - firstPayment.value * (percent.value*0.01/12) * 1/(Math.pow((1+percent.value*0.01/12),moneyBoxTerm) - 1);
+    monthlyPayment.value = (totAmount.value * (percent.value*0.01/12) * 1/(Math.pow((1+percent.value*0.01/12),moneyBoxTerm) - 1) - firstPayment.value * (percent.value*0.01/12) * 1/(Math.pow((1+percent.value*0.01/12),moneyBoxTerm) - 1)).toFixed(2);
     console.log(monthlyPayment.value);
 });

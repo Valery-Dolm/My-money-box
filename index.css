@@ -47,16 +47,13 @@ main {
     height: 550px;
     width: 20%;
     z-index: 1;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     padding-top: 3%;
     padding-bottom: 3%;
     margin-left: 25px;
-    margin-top: 25px;
-    
+    margin-top: 25px;    
 }
 
 .test {
@@ -64,12 +61,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     position: relative;
     z-index: 1;
     padding-top: 3%;
-    padding-bottom: 3%;
-    
+    padding-bottom: 3%;    
 }
 
 input {
@@ -146,10 +141,6 @@ input:hover {
     height: 42px;
 }
 
-
-
-/**/
-
 .card__closed {
     margin-left: 200px;
     height: 300px;
@@ -159,10 +150,8 @@ input:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     position: relative;
     z-index: 0;
     padding-top: 3%;
     padding-bottom: 3%;
->>>>>>> main
 }
