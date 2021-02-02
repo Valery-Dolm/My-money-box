@@ -123,6 +123,7 @@ input:hover {
 .card__monthly-payment {
     height: 30px;
     background-color: white;
+    margin-bottom: 10px;
 }
 
 .card__date-and-percent {
@@ -155,27 +156,28 @@ input:hover {
 }
 
 .card__buttons {
-    /* margin-bottom: 25px; */
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 90%;
     height: 80px;
     padding-top: 8px;
-    /* border-radius: 0 0 45px 45px; */
 }
 
 .card__buttons-delete {
     width: 42px;
-    margin-top: 5px;
-    margin-bottom: 15px;
     height: 42px;
 }
 
 .card__buttons-save {
     width: 42px;
-    margin-top: 5px;
-    margin-bottom: 15px;
     height: 42px;
+}
+
+.card__graphic-logo {
+    width: 42px;
+    height: 42px;
+    padding-left: 13px;
+    display: none;
 }
 
 .card__closed {
