@@ -6,12 +6,13 @@ body {
 }
 
 header {
+    position: fixed;
     width: 100%;
     height: 100px;
     display: flex;
     justify-content: space-around;
-    background-color: rgba(149, 180, 241, 0.5);;
-    margin: 0 auto 50px auto;
+    background-color:rgba(202, 217, 248);
+    margin: 0 auto;
 }
 
 .logo {
@@ -44,8 +45,9 @@ header {
 main {   
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     width: 90%;
+    padding-top: 130px;
 }
 
 .container {
@@ -102,6 +104,9 @@ input:hover {
 
 .card__title {
     height: 50px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 10px;
 }
 
 .card__total-amount {
@@ -168,9 +173,17 @@ input:hover {
     height: 42px;
 }
 
+.card__buttons-delete:hover {
+    cursor: pointer;
+}
+
 .card__buttons-save {
     width: 42px;
     height: 42px;
+}
+
+.card__buttons-save:hover {
+    cursor: pointer;
 }
 
 .card__graphic-logo {
@@ -218,3 +231,31 @@ input:hover {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.card__edit-button {
+    display: none;
+    width: 150px;
+    height: 47px;
+    border-radius: 30px;
+    border: solid 1px white;
+    background: #375672;
+    color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.card__edit-button:focus {
+    outline: none;
+}
+
+.card__edit-button:hover {
+    cursor: pointer;
+}
+
+.inaccessible {
+    pointer-events: none;
+}
+
