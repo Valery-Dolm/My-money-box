@@ -216,3 +216,26 @@ input:hover {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.card__edit-button {
+    display: none;
+    width: 150px;
+    height: 47px;
+    margin-top: 8px;
+
+    border-radius: 30px;
+    border: solid 1px white;
+    background: #375672;
+    color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+
+}
+
+.inaccessible {
+    pointer-events: none;
+}
+
