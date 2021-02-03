@@ -4,6 +4,7 @@ const percent = document.querySelector('.card__percent');
 const monthlyPayment = document.querySelector('.card__monthly-payment');
 const addButton = document.querySelector('.add-card-button');
 const card = document.querySelector('.first-card');
+const card1 = document.querySelector('.card');
 const container = document.querySelector('.container');
 const date = document.querySelector('.card__date');
 const buttonSave = document.querySelector('.card__buttons-save');
@@ -152,7 +153,7 @@ addButton.addEventListener('click', () => {
 
     buttonDelete.addEventListener('click', () => {
         if (window.confirm("Вы собираетесь удалить карточку?")) {
-            newCard.remove(),
+            newCard.remove();
             alert('Карточка удалена.');
         }
     });
@@ -181,11 +182,7 @@ buttonEdit.addEventListener('click', () => {
 
 buttonDelete.addEventListener('click', () => {
     if (window.confirm("Вы собираетесь удалить карточку?")) {
-        card.remove();
-        function myFunction(event) {
-            event.preventDefault();
+        card1.remove();
         alert('Карточка удалена.');
-      } 
-       myFunction();
     }
 });
