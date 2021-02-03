@@ -82,6 +82,44 @@ main {
     margin-bottom: 50px;
 }
 
+.nightButton {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+    top: 27.5px;    
+}
+
+.nightButton-night {
+    filter: contrast(0);
+}
+
+.dark-background-body {
+    background-color: #292929;
+}
+
+.dark-background-title {
+    background-color: rgb(18, 17, 17);
+    color: #ffa727;
+}
+
+.dark-add-button-background {
+    background-color: #8f4dba80;
+    color: #ffa727;
+}
+
+.dark-background-card {
+    background-color: rgb(101, 86,118, 50%);
+}
+
+.dark-back-inputs {
+    background-color: #9c9183;
+}
+
+.dark-font {
+    color: #ffa727;
+}
+
 div .card:first-child {
     margin-right: 50px;
 }
@@ -136,7 +174,6 @@ input:hover {
 
 .card__monthly-payment {
     height: 30px;
-    background-color: white;
     margin-bottom: 10px;
 }
 

@@ -9,9 +9,12 @@ const container = document.querySelector('.container');
 const date = document.querySelector('.card__date');
 const buttonSave = document.querySelector('.card__buttons-save');
 const buttonDelete = document.querySelector('.card__buttons-delete');
-const toSave = document.querySelectorAll('.to-save');
+const toSave = card1.querySelectorAll('.to-save');
 const buttonEdit = document.querySelector('.card__edit-button');
 const title = document.querySelector('.card__title');
+const nightButton = document.querySelector('.nightButton');
+const header = document.querySelector('header');
+let nightTracker = 'day';
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(1, '0');
@@ -73,6 +76,7 @@ addButton.addEventListener('click', () => {
     let newCard = document.createElement('div');
     newCard.innerHTML = card.innerHTML;
     newCard.classList.add('card');
+    nightTracker == 'night' ? newCard.classList.add('dark-background-card') : null ;
     container.append(newCard);
     let totAmount = newCard.querySelector('.card__total-amount');
     let firstPayment = newCard.querySelector('.card__first-payment');
@@ -186,3 +190,36 @@ buttonDelete.addEventListener('click', () => {
         alert('Карточка удалена.');
     }
 });
+
+nightButton.addEventListener('click', () => {
+    const cards = document.querySelectorAll('.card');
+    const inputs = document.querySelectorAll('input');
+
+    if(nightTracker == 'day'){
+        document.body.classList.add('dark-background-body');
+        header.classList.add('dark-background-title');
+        addButton.classList.add('dark-add-button-background');
+        cards.forEach((item) => {
+            item.classList.add('dark-background-card');
+        });
+        inputs.forEach((item) => {
+            item.classList.add('dark-back-inputs');
+        });
+        nightButton.classList.add('nightButton-night');
+        nightTracker = 'night';
+    } else {
+        document.body.classList.remove('dark-background-body');
+        header.classList.remove('dark-background-title');
+        addButton.classList.remove('dark-add-button-background');
+        cards.forEach((item) => {
+            item.classList.remove('dark-background-card');
+        });
+        inputs.forEach((item) => {
+            item.classList.remove('dark-back-inputs');
+        });
+        nightButton.classList.remove('nightButton-night');
+        nightTracker = 'day';
+    }
+
+    
+})
