@@ -21,6 +21,10 @@ header {
     margin-top: 5px;
 }
 
+div .first-card {
+    display: none;
+}
+
 .add-card-button {
     border-radius: 30px;
     height: 45px;

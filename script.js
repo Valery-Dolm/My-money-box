@@ -3,7 +3,7 @@ const firstPayment = document.querySelector('.card__first-payment');
 const percent = document.querySelector('.card__percent');
 const monthlyPayment = document.querySelector('.card__monthly-payment');
 const addButton = document.querySelector('.add-card-button');
-const card = document.querySelector('.card');
+const card = document.querySelector('.first-card');
 const container = document.querySelector('.container');
 const date = document.querySelector('.card__date');
 const buttonSave = document.querySelector('.card__buttons-save');
@@ -11,7 +11,6 @@ const buttonDelete = document.querySelector('.card__buttons-delete');
 const toSave = document.querySelectorAll('.to-save');
 const buttonEdit = document.querySelector('.card__edit-button');
 const title = document.querySelector('.card__title');
-let statusTracker = 'buttons';
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(1, '0');
@@ -84,11 +83,7 @@ addButton.addEventListener('click', () => {
     const toSave = newCard.querySelectorAll('.to-save');
     const buttonEdit = newCard.querySelector('.card__edit-button');
     const title = newCard.querySelector('.card__title');
-    if(statusTracker == 'reduction') {
-        buttonSave.style.display = 'inline-block';
-        buttonDelete.style.display = 'inline-block';
-        buttonEdit.style.display = 'none';
-    }
+    
     
     date.addEventListener('change', () => {
         moneyBoxTerm = ((+date.value.split('-')[0] - yyyy) * 12 + +date.value.split('-')[1] - mm + (+date.value.split('-')[2] - dd) / 31).toFixed(2);
@@ -143,7 +138,7 @@ addButton.addEventListener('click', () => {
         buttonEdit.style.display = 'inline-block';
         title.style.backgroundColor = '#FDFFAB';
     });
-  
+
     buttonEdit.addEventListener('click', () => {
         toSave.forEach((item) => {
             item.classList.remove('inaccessible');
@@ -156,7 +151,10 @@ addButton.addEventListener('click', () => {
     });
 
     buttonDelete.addEventListener('click', () => {
-        newCard.remove();
+        if (window.confirm("Вы собираетесь удалить карточку?")) {
+            newCard.remove(),
+            alert('Карточка удалена.');
+        }
     });
 });
 
@@ -167,7 +165,6 @@ buttonSave.addEventListener('click', () => {
     buttonSave.style.display = 'none';
     buttonDelete.style.display = 'none';
     buttonEdit.style.display = 'inline-block';
-    statusTracker = 'reduction';
     title.style.backgroundColor = '#FDFFAB';
 });
 
@@ -179,12 +176,16 @@ buttonEdit.addEventListener('click', () => {
     buttonSave.style.display = 'inline-block';
     buttonDelete.style.display = 'inline-block';
     buttonEdit.style.display = 'none';
-    statusTracker = 'buttons';
     title.style.backgroundColor = 'white';
 });
 
 buttonDelete.addEventListener('click', () => {
-    card.remove();
+    if (window.confirm("Вы собираетесь удалить карточку?")) {
+        card.remove();
+        function myFunction(event) {
+            event.preventDefault();
+        alert('Карточка удалена.');
+      } 
+       myFunction();
+    }
 });
-
-
