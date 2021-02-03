@@ -82,7 +82,11 @@ main {
     margin-bottom: 50px;
 }
 
-.card:nth-child(3n) {
+div .card:first-child {
+    margin-right: 50px;
+}
+
+.card:nth-child(3n+1) {
     margin-right: 0;
 } 
 
